@@ -1,4 +1,4 @@
-function fetchIssues () {
+window.onload=function tickets () {
   var issues = JSON.parse(localStorage.getItem('issues'));
   var issuesList = document.getElementById('issuesList');
 
@@ -82,5 +82,5 @@ function deleteIssue (id) {
 
   localStorage.setItem('issues', JSON.stringify(issues));
 
-  fetchIssues();
+  tickets();
 }
