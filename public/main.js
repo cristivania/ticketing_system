@@ -1,6 +1,6 @@
-window.onload=function tickets () {
+function tickets () {
   var issues = JSON.parse(localStorage.getItem('issues'));
-  var issuesList = document.getElementById('issuesList');
+  var issuesList = document.getElementById('ticketList');
 
   issuesList.innerHTML = '';
 
@@ -11,7 +11,7 @@ window.onload=function tickets () {
     var assignedTo = issues[i].assignedTo;
     var status = issues[i].status;
 
-    issuesList.innerHTML +=   '<div class="well">'+
+    ticketList.innerHTML +=   '<div class="well">'+
                               '<h6>Issue ID: ' + id + '</h6>'+
                               '<p><span class="label label-info">' + status + '</span></p>'+
                               '<h3>' + desc + '</h3>'+
@@ -23,17 +23,17 @@ window.onload=function tickets () {
   }
 }
 
-document.getElementById('issueInputForm').addEventListener('submit', saveIssue);
+document.getElementById('ticketForm').addEventListener('submit', saveIssue);
 function saveIssue(e) {
-  var issueId = chance.guid();
-  var issueDesc = document.getElementById('issueDescInput').value;
-  var issueSeverity = document.getElementById('issueSeverityInput').value;
-  var issueAssignedTo = document.getElementById('issueAssignedToInput').value;
+  var issueId = Math.random();
+  var issueDesc = document.getElementById('ticketDesc').value;
+  var issuePriority = document.getElementById('ticketPriority').value;
+  var issueAssignedTo = document.getElementById('ticketAssigned').value;
   var issueStatus = 'Open';
   var issue = {
     id: issueId,
     description: issueDesc,
-    severity: issueSeverity,
+    severity: issuePriority,
     assignedTo: issueAssignedTo,
     status: issueStatus
   }
@@ -48,9 +48,9 @@ function saveIssue(e) {
     localStorage.setItem('issues', JSON.stringify(issues));
   }
 
-  document.getElementById('issueInputForm').reset();
+  document.getElementById('ticketForm').reset();
 
-  fetchIssues();
+  tickets();
 
   e.preventDefault();
 }
@@ -68,7 +68,7 @@ function setStatusClosed (id) {
 
   localStorage.setItem('issues', JSON.stringify(issues));
 
-  fetchIssues();
+  tickets();
 }
 
 function deleteIssue (id) {
