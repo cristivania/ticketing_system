@@ -1,3 +1,31 @@
+body{
+  background-image: url('');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+
 .header h1{
   text-align: center;
+  color: #1ac6ff;
+
+}
+
+.jumbotron{
+  width: 100%;
+ color: white !important;
+ background: rgba(0, 0, 0, 0.6) !important;
+ box-shadow: 1px 2px 1px #000000;
+ padding-left: 80px;
+ padding-bottom: 15px;
+ padding-top: 15px;
+}
+
+.well{
+  background: rgba(0, 0, 0, 0.6) !important;
+  color: white !important;
+  box-shadow: 1px 2px 1px #000000 !important;
+  border-style: none !important;
+
+
 }
